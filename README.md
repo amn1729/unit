@@ -99,3 +99,15 @@ export type ResponsiveSize = {
 |:--------------------------|:-----------------------|:-------------------------------------------------------------------|
 | unit, unit.dim, unit.text | size: number           | ResponsiveSize                                                     |
 | unit.scale                | ratios: ResponsiveSize | { transform: { xs: string; lg: string; xl: string; xxl: string } } |
+
+### Extending unit
+adding custom functions to unit , for example `rem` for px -> rem
+```typescript
+unit.rem = function (size: number): string {
+  return size / 16 + "rem";
+};
+```
+using `unit.rem`
+```typescript
+unit.rem(8) // => "0.5rem"
+```
