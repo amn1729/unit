@@ -43,7 +43,7 @@ unit.dim(16)
 // }
 ```
 
-### unit.scale (for adjusting sizes via transfor->scale)
+### unit.scale (for adjusting sizes via transform->scale)
 ```typescript
 unit.scale()
 // =>
@@ -55,7 +55,18 @@ unit.scale()
 //         "xxl": "scale(1)"
 //     }
 // }
-```
+
+unit.scale({ xs: 0.5 , xl: 0.88 })
+// =>
+// {
+//     "transform": {
+//         "xs": "scale(0.5)",
+//         "lg": "scale(0.8)",
+//         "xl": "scale(0.88)",
+//         "xxl": "scale(1)"
+//     }
+// }
+    ```
 
 ### Defaults
 default ratios for `unit` and `unit.dim`
@@ -71,3 +82,20 @@ let xsRatio = 0.7;
 let lgRatio = 0.85;
 let xlRatio = 0.9;
 ```
+
+### Types
+```typescript
+export type ResponsiveSize = {
+  xs?: number;
+  md?: number;
+  lg?: number;
+  xl?: number;
+  xxl?: number;
+};
+```
+
+### Function Parameters/Return Types
+| Name                      | Parameters             | Return                                                             |
+|:--------------------------|:-----------------------|:-------------------------------------------------------------------|
+| unit, unit.dim, unit.text | size: number           | ResponsiveSize                                                     |
+| unit.scale                | ratios: ResponsiveSize | { transform: { xs: string; lg: string; xl: string; xxl: string } } |
