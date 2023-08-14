@@ -66,7 +66,7 @@ unit.scale({ xs: 0.5 , xl: 0.88 })
 //         "xxl": "scale(1)"
 //     }
 // }
-    ```
+```
 
 ### Defaults
 default ratios for `unit` and `unit.dim`
